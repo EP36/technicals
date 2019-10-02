@@ -211,47 +211,78 @@ var numbers = [
   "+17341563025"
 ];
 
+// const solution = (arr) => {
+// // create variable for results that will be an array
+// const results = [];
+
+// // iterate through input array
+// for (let i = 0; i < arr.length; i++) {
+//   // create temporary empty object
+//   let obj = {
+//     'count': 1,
+//     'code': ''
+//   };
+
+//   // each iteration, splice from index 2-4
+//   let area = arr[i].slice(2, 5);
+
+//   if (results.length > 0) {
+//     for (let j = 0; j < results.length; j++) {
+//       if (Object.values(results[j]).includes(area.toString())) {
+//         results[j]['count']++;
+//       } else {
+//           obj['code'] = area.toString();
+//       }
+//     }
+//     results.push(obj);
+//   } else {
+//     obj['code'] = area.toString();
+//     results.push(obj);
+//   }
+
+//   // iterate through results array
+  
+//     // check if each element in results array hasOwnProperty  for area code, if it does, increment count by 1
+//     // else 
+//       // create key value pair for count initialized to 1
+//       // create key value pair for code in temp obj
+//       // push obj into results array
+// }
+
+
+// // return results
+// return results;
+// }
+
 const solution = (arr) => {
-// create variable for results that will be an array
-const results = [];
-
-// iterate through input array
-for (let i = 0; i < arr.length; i++) {
-  // create temporary empty object
-  let obj = {
-    'count': 1,
-    'code': ''
-  };
-
-  // each iteration, splice from index 2-4
-  let area = arr[i].slice(2, 5);
-
-  if (results.length > 0) {
-    for (let j = 0; j < results.length; j++) {
-      if (Object.values(results[j]).includes(area.toString())) {
-        results[j]['count']++;
-      } else {
-          obj['code'] = area.toString();
-      }
-    }
-    results.push(obj);
-  } else {
-    obj['code'] = area.toString();
-    results.push(obj);
+  const results = [];
+  const codes = [];
+  
+  for (let i = 0; i < arr.length; i++) {
+    codes.push(arr[i].slice(2,5));
   }
 
-  // iterate through results array
-  
-    // check if each element in results array hasOwnProperty  for area code, if it does, increment count by 1
-    // else 
-      // create key value pair for count initialized to 1
-      // create key value pair for code in temp obj
-      // push obj into results array
-}
+  for (let i = 0; i < codes.length; i++) {
+    let obj = {
+      'count': 1,
+      'code': codes[i]
+    }
+    if (results.length === 0) {
+      results.push(obj)
+    } else {
+      for (let j = 0; j < results.length; j++) {
+        console.log()
+        if (Object.values(results[j]).includes(codes[i])) {
+          results[j]['count']++;
+        } else {
+          continue;
+        }
+      }
+      results.push(obj);
+    }
+  }
 
-
-// return results
-return results;
+  return results;
 }
 
 console.log(solution(numbers))
