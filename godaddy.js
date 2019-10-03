@@ -32,6 +32,6 @@ function rollTheString(s, roll) {
     return sArr.join('');
 }
 
-let str = 'wxyz';
-let arr = [1, 2, 3, 4];
+let str = 'zzzzzzz';
+let arr = [8, 8, 8, 8, 8, 8, 8, 8, 8, 8];
 console.log(rollTheString(str, arr)); //aaaa
