@@ -113,7 +113,7 @@ const find_pairs = (arr) => {
     result[pairs[i]] = [];
   }
   
-  for (let [key, value] of Object.entries(classes)) {
+  for (let key in classes) {
     for(let i = 0; i < pairs.length; i++) {
       if (classes[key].includes(pairs[i][0]) && classes[key].includes(pairs[i][1])) {
         result[pairs[i]].push(key)
